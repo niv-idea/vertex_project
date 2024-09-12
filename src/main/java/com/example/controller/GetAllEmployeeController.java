@@ -24,18 +24,13 @@ public class GetAllEmployeeController {
                 ResponseDto responseDto = entityToDto(employee);
                 responses.add(responseDto);
             }
-
             response.setEmployees(responses);
-//            List<ResponseDto> responses = employees.stream()
-//                    .map(this::entityToDto)  // Convert each Employee to ResponseDto
-//                    .collect(Collectors.toList());
-            ResponseHelper.writeJsonResponse(routingContext, response);
+
+            ResponseHelper.writeJsonResponse(routingContext, responses);
         }catch (Exception e){
             e.printStackTrace();
             ResponseHelper.handleError(routingContext,e.getMessage());
-
         }
-
     }
     private static ResponseDto entityToDto(Employee employee){
         ResponseDto response=new ResponseDto();

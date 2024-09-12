@@ -50,7 +50,9 @@ public class MainVerticle extends AbstractVerticle {
         router.get("/employee/details/:employeeId").handler(GetEmployeeByIdController::handler);
         router.put("/employee/update").handler(UpdateEmployeeController::handle);
         router.post("/customer/add").handler(AddCustomer::handler);
-
+        router.put("/customer/update").handler(UpdateCustomer::handle);
+        router.get("/customer/get/:customerId").handler(GetCustomerController::handler);
+        router.get("/customer/getAll").handler(GetAllCustomerController::handler);
     }
 
 
