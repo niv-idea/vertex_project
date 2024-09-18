@@ -18,7 +18,7 @@ public enum GetAllEmployeeController {
         try{
             Response response=new Response();
             List<ResponseDto> dtoList = new ArrayList<>();
-             List<Employee> employees=  DbConnection.sqlDb.find(Employee.class).findList();
+             List<Employee> employees=  DbConnection.sqlDb.find(Employee.class).where().findList();
 
             //now retrieve the data one by one
             for (Employee employee : employees) {
