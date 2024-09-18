@@ -17,17 +17,17 @@ public enum GetAllEmployeeController {
 
         try{
             Response response=new Response();
-            List<ResponseDto> responses = new ArrayList<>();
+            List<ResponseDto> dtoList = new ArrayList<>();
              List<Employee> employees=  DbConnection.sqlDb.find(Employee.class).findList();
 
             //now retrieve the data one by one
             for (Employee employee : employees) {
                 ResponseDto responseDto = entityToDto(employee);
-                responses.add(responseDto);
+                dtoList.add(responseDto);
             }
-            response.setEmployees(responses);
+            response.setEmployees(dtoList);
 
-            ResponseHelper.writeJsonResponse(routingContext, responses);
+            ResponseHelper.writeJsonResponse(routingContext, response);
         }catch (Exception e){
             e.printStackTrace();
             ResponseHelper.handleError(routingContext,e.getMessage());
