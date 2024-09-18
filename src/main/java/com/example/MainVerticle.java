@@ -45,9 +45,6 @@ public class MainVerticle extends AbstractVerticle {
 
     }
 
-    private int getProcessors() {
-        return Math.max(1, Runtime.getRuntime().availableProcessors());
-    }
 
     private void httpRouting(Router router) {
         router.get("/check").handler(AppController::apiResponse);
