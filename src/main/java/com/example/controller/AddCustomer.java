@@ -8,7 +8,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class AddCustomer {
+public enum AddCustomer {
+    INSTANCE;
     public static void handler(RoutingContext routingContext){
 
         try{

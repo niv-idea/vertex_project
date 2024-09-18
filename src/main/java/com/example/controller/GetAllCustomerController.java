@@ -9,7 +9,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetAllCustomerController {
+public enum GetAllCustomerController {
+    INSTANCE;
     public static void handler(RoutingContext routingContext){
         try{
             FinalResponse finalResponse = new FinalResponse();

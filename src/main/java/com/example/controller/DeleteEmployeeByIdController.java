@@ -7,7 +7,8 @@ import com.example.repository.EmployeeRepository;
 import com.example.utility.ResponseHelper;
 import io.vertx.ext.web.RoutingContext;
 
-public class DeleteEmployeeByIdController {
+public enum DeleteEmployeeByIdController {
+    INSTANCE;
     public static void handler(RoutingContext routingContext){
 
         try {

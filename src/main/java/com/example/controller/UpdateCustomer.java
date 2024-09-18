@@ -7,7 +7,8 @@ import com.example.utility.ResponseHelper;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class UpdateCustomer {
+public enum UpdateCustomer {
+    INSTANCE;
     public static void handle(RoutingContext context){
         Integer id = Integer.valueOf(context.request().getParam("id"));
         CustomerRequest request = context.getBodyAsJson().mapTo(CustomerRequest.class);

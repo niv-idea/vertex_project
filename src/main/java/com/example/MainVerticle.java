@@ -2,7 +2,9 @@ package com.example;
 
 import com.example.controller.*;
 import com.example.repository.DbConnection;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
@@ -18,9 +20,8 @@ public class MainVerticle extends AbstractVerticle {
 
     @Override
     public void start(Promise<Void> promise) throws Exception {
-
+        //with the help of we can provide the database config in all over project
         ConfigManager.mainConfiguration=config();
-
 
         Router router = Router.router(vertx);
         router.route().handler(BodyHandler.create());
@@ -38,8 +39,14 @@ public class MainVerticle extends AbstractVerticle {
                     }
                 });
         //db connection initialization
-        DbConnection.initSqlConnection();
+        CompletableFuture.runAsync(()-> {
+            DbConnection.initSqlConnection();
+        });
 
+    }
+
+    private int getProcessors() {
+        return Math.max(1, Runtime.getRuntime().availableProcessors());
     }
 
     private void httpRouting(Router router) {
@@ -71,5 +78,6 @@ public class MainVerticle extends AbstractVerticle {
             DbConnection.initSqlConnection();
         });
     }
+
 
 }

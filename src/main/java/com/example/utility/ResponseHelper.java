@@ -6,7 +6,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class ResponseHelper {
+public enum ResponseHelper {
+    INSTANCE;
     public static void writeJsonResponse(RoutingContext context, Object response) {
         context.response().putHeader("content-type", "application/json")
                 .end(

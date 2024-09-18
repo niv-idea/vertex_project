@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class GetAllEmployeeController {
+public enum GetAllEmployeeController {
+    INSTANCE;
 
     public static void handler(RoutingContext routingContext){
 

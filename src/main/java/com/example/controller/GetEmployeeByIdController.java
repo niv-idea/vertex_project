@@ -7,7 +7,8 @@ import com.example.utility.ResponseHelper;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class GetEmployeeByIdController {
+public enum GetEmployeeByIdController {
+    INSTANCE;
     public static void handler(RoutingContext routingContext){
        try {
             String employeeId = routingContext.request().getParam("employeeId");

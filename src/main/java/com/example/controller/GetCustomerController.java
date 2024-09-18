@@ -6,7 +6,8 @@ import com.example.utility.ResponseHelper;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class GetCustomerController {
+public enum GetCustomerController {
+    INSTANCE;
     public static void handler(RoutingContext routingContext){
         try{
             String customerId = routingContext.request().getParam("customerId");

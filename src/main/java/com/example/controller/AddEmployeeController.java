@@ -7,7 +7,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.Data;
 
-public class AddEmployeeController {
+public enum AddEmployeeController {
+    INSTANCE;
     public static void handle(RoutingContext context){
         try{
            // context.request().getParam("id");
